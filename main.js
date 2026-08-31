@@ -35,4 +35,14 @@ fetch(
       </p>
     `;
     }
+  })
+  .catch((err) => {
+    console.log("Something went wrong! 😑");
+
+    imgUrl = "images//default-bg-img.jpeg";
+
+    document.documentElement.style.setProperty(
+      "--bg-image",
+      `url("${imgUrl}")`,
+    );
   });
