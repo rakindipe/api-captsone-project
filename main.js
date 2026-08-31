@@ -18,15 +18,20 @@ fetch(
     console.log(imgAuthor);
     // console.log(data);
 
+    // don't display "null"
     if (imgLocation === null) {
       document.getElementById("author-display").innerHTML = `
+      <p>
       By: ${imgAuthor}
+      </p>
     `;
     } else {
       document.getElementById("author-display").innerHTML = `
+      <p>
       ${imgLocation}
       <br>
       By: ${imgAuthor}
+      </p>
     `;
     }
   });
