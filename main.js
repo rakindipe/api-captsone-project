@@ -29,7 +29,8 @@ fetch(
       document.getElementById("author-display").innerHTML = `
       <p>
       ${imgLocation}
-      <br>
+      </p>
+      <p>
       By: ${imgAuthor}
       </p>
     `;
