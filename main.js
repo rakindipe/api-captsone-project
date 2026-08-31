@@ -5,7 +5,7 @@ fetch(
 )
   .then((res) => res.json())
   .then((data) => {
-    imgUrl = data.urls.regular;
+    imgUrl = data.urls.full;
     document.documentElement.style.setProperty(
       "--bg-image",
       `url("${imgUrl}")`,
