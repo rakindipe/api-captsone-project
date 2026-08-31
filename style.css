@@ -4,7 +4,7 @@ html, body {
 }
 
 body {
-    background: no-repeat center center fixed; 
+    background: var(--bg-image) no-repeat center center fixed; 
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
