@@ -1,7 +1,10 @@
 let imgUrl;
 let imgLocation;
 let imgAuthor;
+let cryptoName;
+let crytpoImg;
 
+// get bg-image
 fetch(
   "https://apis.scrimba.com/unsplash/photos/random?orientation=landscape&query=nature",
 )
@@ -22,7 +25,7 @@ fetch(
     if (imgLocation === null) {
       document.getElementById("author-display").innerHTML = `
       <p>
-      By: ${imgAuthor}
+      ${imgAuthor}
       </p>
     `;
     } else {
@@ -31,12 +34,13 @@ fetch(
       ${imgLocation}
       </p>
       <p>
-      By: ${imgAuthor}
+      ${imgAuthor}
       </p>
     `;
     }
   })
   .catch((err) => {
+    console.error(err);
     console.log("Something went wrong! 😑");
 
     imgUrl = "images//default-bg-img.jpeg";
@@ -46,3 +50,30 @@ fetch(
       `url("${imgUrl}")`,
     );
   });
+
+// get crytpo info
+fetch("https://api.coingecko.com/api/v3/coins/bitcoin")
+  .then((res) => res.json())
+  .then((data) => {
+    console.log(data);
+
+    cryptoName = data.name;
+    crytpoImg = data.image.thumb;
+    // console.log(cryptoName);
+    // console.log(crytpoImg);
+
+    document.getElementById("crypto").innerHTML = `
+    <img src="${crytpoImg}"/>
+    <p>${cryptoName}</p>
+    `;
+  })
+  .catch((err) => console.error(err));
+
+// get coin(s) prices
+// fetch(
+//   "https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,hyperliquid&vs_currencies=usd",
+// )
+//   .then((res) => res.json())
+//   .then((data) => {
+//     console.log(data);
+//   });
