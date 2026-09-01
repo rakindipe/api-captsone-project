@@ -58,13 +58,13 @@ fetch("https://api.coingecko.com/api/v3/coins/bitcoin")
     console.log(data);
 
     cryptoName = data.name;
-    crytpoImg = data.image.thumb;
+    crytpoImg = data.image.small;
     // console.log(cryptoName);
     // console.log(crytpoImg);
 
     document.getElementById("crypto").innerHTML = `
     <img src="${crytpoImg}"/>
-    <p>${cryptoName}</p>
+    <span>${cryptoName}</span>
     `;
   })
   .catch((err) => console.error(err));

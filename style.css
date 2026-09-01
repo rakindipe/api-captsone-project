@@ -31,3 +31,12 @@ main {
     /* border: 3px dashed red; */
     text-align: center;
 }
+
+div#crypto {
+    display: flex;
+    align-items: center;
+}
+
+div#crypto > span {
+    margin-left: 10px;
+}
