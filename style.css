@@ -31,12 +31,26 @@ main {
     /* border: 3px dashed red; */
     text-align: center;
 }
-
 div#crypto {
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    color: white;
+    font-weight: bold;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
 }
 
-div#crypto > span {
-    margin-left: 10px;
+div#crypto .crypto-top {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+div#crypto .crypto-top > span {
+    margin-left: 8px;
+    font-size: 1.2rem;
+}
+
+div#crypto > p {
+    margin: 2px 0;
+    font-size: 1rem;
 }

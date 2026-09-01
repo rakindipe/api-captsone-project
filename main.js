@@ -3,6 +3,9 @@ let imgLocation;
 let imgAuthor;
 let cryptoName;
 let crytpoImg;
+let crytpoPrice;
+let crytpoHigh;
+let cryptoLow;
 
 // get bg-image
 fetch(
@@ -59,21 +62,19 @@ fetch("https://api.coingecko.com/api/v3/coins/bitcoin")
 
     cryptoName = data.name;
     crytpoImg = data.image.small;
-    // console.log(cryptoName);
-    // console.log(crytpoImg);
+
+    crytpoPrice = data.market_data.current_price.usd;
+    crytpoHigh = data.market_data.high_24h.usd;
+    cryptoLow = data.market_data.low_24h.usd;
 
     document.getElementById("crypto").innerHTML = `
-    <img src="${crytpoImg}"/>
-    <span>${cryptoName}</span>
+    <div class="crypto-top">
+      <img src="${crytpoImg}"/>
+      <span>${cryptoName}</span>
+    </div>
+    <p>🎯: ${crytpoPrice}</p>
+    <p>📈: ${crytpoHigh}</p>
+    <p>📉: ${cryptoLow}</p>
     `;
   })
   .catch((err) => console.error(err));
-
-// get coin(s) prices
-// fetch(
-//   "https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,hyperliquid&vs_currencies=usd",
-// )
-//   .then((res) => res.json())
-//   .then((data) => {
-//     console.log(data);
-//   });
