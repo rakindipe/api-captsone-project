@@ -72,9 +72,9 @@ fetch("https://api.coingecko.com/api/v3/coins/bitcoin")
       <img src="${crytpoImg}"/>
       <span>${cryptoName}</span>
     </div>
-    <p>🎯: ${crytpoPrice}</p>
-    <p>📈: ${crytpoHigh}</p>
-    <p>📉: ${cryptoLow}</p>
+    <p>🎯: $${crytpoPrice.toLocaleString()}</p>
+    <p>📈: $${crytpoHigh.toLocaleString()}</p>
+    <p>📉: $${cryptoLow.toLocaleString()}</p>
     `;
   })
   .catch((err) => console.error(err));
