@@ -88,8 +88,8 @@ div#crypto > p {
 }
 
 .weather-top img {
-  width: 45px;
-  height: 45px;
+  width: 55px;
+  height: 55px;
   object-fit: contain;
   /* Filters default black OpenWeather icons to white to match the image style */
   /* filter: brightness(0) invert(1);  */
