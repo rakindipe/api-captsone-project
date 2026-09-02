@@ -108,8 +108,14 @@ const getUserLocation = () => {
     fetch(
       `https://apis.scrimba.com/openweathermap/data/2.5/weather?lat=${userLocation[0]}&lon=${userLocation[1]}&units=imperial}`,
     )
-      .then((res) => res.json())
-      .then((data) => console.log(data));
+      .then((res) => {
+        if (!res.ok) {
+          throw Error("Weather data not available");
+        }
+        return res.json();
+      })
+      .then((data) => console.log(data))
+      .catch((err) => console.error(err));
   });
 };
 
