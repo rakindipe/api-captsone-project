@@ -83,7 +83,20 @@ const fetchCryptoData = () => {
     .catch((err) => console.error(err));
 };
 
+/* set time */
+const updateTime = () => {
+  const now = new Date();
+  const timeOptions = { timeStyle: "short" };
+
+  const formattedTime = new Intl.DateTimeFormat("en-US", timeOptions).format(
+    now,
+  );
+  document.getElementById("time").textContent = formattedTime;
+};
+
 fetchBgImg();
 fetchCryptoData();
+updateTime();
 
 setInterval(fetchCryptoData, 60000);
+setInterval(updateTime, 1000);
