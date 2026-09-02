@@ -10,7 +10,7 @@ body {
     -o-background-size: cover;
     background-size: cover;
     color: white;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     text-shadow: 0px 0px 20px #474747;
 } 
 
@@ -53,4 +53,40 @@ div#crypto .crypto-top > span {
 div#crypto > p {
     margin: 0;
     font-size: 1rem;
+}
+
+#weather {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-end;
+  color: #ffffff;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.6);
+}
+
+.weather-top {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.weather-top img {
+  width: 45px;
+  height: 45px;
+  object-fit: contain;
+  /* Filters default black OpenWeather icons to white to match the image style */
+  /* filter: brightness(0) invert(1);  */
+}
+
+.weather-top .temp {
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+#weather .location {
+  margin: 2px 0 0 0;
+  font-size: 0.95rem;
+  font-weight: 400;
+  opacity: 0.9;
 }

@@ -114,7 +114,29 @@ const getUserLocation = () => {
         }
         return res.json();
       })
-      .then((data) => console.log(data))
+      .then((data) => {
+        // console.log(data);
+
+        // get weather icon
+        const weatherIconData = data.weather[0].icon;
+
+        // api won't return temp in fahrenheit...
+        // so have to convert from kelvin to fahrenheit...
+        const tempInKelvin = data.main.temp;
+        const tempInFahrenheit = Math.round((tempInKelvin - 273.15) * 1.8 + 32);
+
+        // city & country names
+        const city = data.name;
+        const country = data.sys.country;
+
+        document.querySelector("#weather").innerHTML = `
+          <div class="weather-top">
+            <img src="https://openweathermap.org/img/wn/${weatherIconData}@2x.png"/>
+            <span class="temp">${tempInFahrenheit}°</span>
+          </div>
+          <p class="location">${city}, ${country}</p>
+        `;
+      })
       .catch((err) => console.error(err));
   });
 };
@@ -126,5 +148,6 @@ getUserLocation();
 
 setInterval(fetchCryptoData, 60000);
 setInterval(updateTime, 1000);
+setInterval(getUserLocation, 60000);
 
 //
