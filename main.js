@@ -88,14 +88,19 @@ const updateTime = () => {
   const now = new Date();
   const timeOptions = { timeStyle: "short" };
 
+  // Format the time string
   const formattedTime = new Intl.DateTimeFormat("en-US", timeOptions).format(
     now,
   );
-  document.getElementById("time").textContent = formattedTime;
 
-  /* alternate way to log the current time */
-  // const date = new Date();
-  // console.log(date.toLocaleTimeString("en-us", { timeStyle: "short" }));
+  // Replace the colon in the formatted string with a wrapped span
+  const animatedTimeHTML = formattedTime.replace(
+    ":",
+    '<span class="colon">:</span>',
+  );
+
+  // Inject the formatted HTML into your element
+  document.querySelector(".time").innerHTML = animatedTimeHTML;
 };
 
 /* get user's location for weather api */
