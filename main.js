@@ -92,11 +92,33 @@ const updateTime = () => {
     now,
   );
   document.getElementById("time").textContent = formattedTime;
+
+  /* alternate way to log the current time */
+  // const date = new Date();
+  // console.log(date.toLocaleTimeString("en-us", { timeStyle: "short" }));
+};
+
+/* get user's location for weather api */
+const getUserLocation = () => {
+  // get user long. & lat.
+  const userLocation = navigator.geolocation.getCurrentPosition((position) => {
+    const userLocation = [position.coords.latitude, position.coords.longitude];
+    // console.log(userLocation);
+
+    fetch(
+      `https://apis.scrimba.com/openweathermap/data/2.5/weather?lat=${userLocation[0]}&lon=${userLocation[1]}&units=imperial}`,
+    )
+      .then((res) => res.json())
+      .then((data) => console.log(data));
+  });
 };
 
 fetchBgImg();
 fetchCryptoData();
 updateTime();
+getUserLocation();
 
 setInterval(fetchCryptoData, 60000);
 setInterval(updateTime, 1000);
+
+//
